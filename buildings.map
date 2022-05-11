@@ -12,7 +12,7 @@
 #if OSM_FORCE_POSTGIS_EXTENT == 1
 		EXTENT OSM_EXTENT
 #endif
-		DATA "geometry from (select geometry,osm_id, OSM_NAME_COLUMN as name from OSM_PREFIX_buildings) as foo using unique osm_id using srid=OSM_SRID"
+		DATA _buildings_data
 		METADATA
 			"ows_title" layername(buildings,_layer_suffix)
 		END

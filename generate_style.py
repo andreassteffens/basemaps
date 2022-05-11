@@ -264,6 +264,7 @@ style = {
 	'forest_lbl_ol_width': 2,
 
 	'display_transport_areas': {0: 0, 11: 1},
+	'transport_areas_data': '"geometry from OSM_PREFIX_transport_areas using unique osm_id using srid=OSM_SRID"',
 	'transport_clr': '200 200 200',
 	'display_transport_lbl': {0: 0, 12: 1},
 	'transport_font': "sc",
@@ -785,6 +786,7 @@ style = {
 		0: 0,
 		15: 1
 	},
+	'buildings_data': '"geometry from (select geometry,osm_id, OSM_NAME_COLUMN as name from OSM_PREFIX_buildings) as foo using unique osm_id using srid=OSM_SRID"',
 	'building_clr': '"#bbbbbb"',
 	'building_ol_clr': '"#333333"',
 	'building_ol_width': {
@@ -807,6 +809,7 @@ style = {
 		0: 0,
 		10: 1
 	},
+	'aeroways_data': '"geometry from (select geometry, osm_id, type from OSM_PREFIX_aeroways) as foo using unique osm_id using srid=OSM_SRID"',
 	'runway_clr': "180 180 180",
 	'runway_width': {
 		0: 1,
