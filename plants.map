@@ -1,0 +1,32 @@
+#if _display_plants == 1
+	LAYER
+		GROUP "default"
+		STATUS ON
+		CONNECTIONTYPE POSTGIS
+		CONNECTION "OSM_DB_CONNECTION"
+		PROJECTION
+			"init=epsg:OSM_SRID"
+		END
+		MINSCALEDENOM _minscale
+		MAXSCALEDENOM _maxscale
+		TYPE POINT
+#if OSM_FORCE_POSTGIS_EXTENT == 1
+		EXTENT OSM_EXTENT
+#endif
+		NAME layername(plants,_layer_suffix)
+		DATA _plants_data
+		CLASS
+			STYLE
+				SIZE _plants_canopy_size
+				SYMBOL "plantcircle"
+				COLOR _plants_canopy_clr
+				OPACITY _plants_canopy_opacity
+			END
+			STYLE
+				SIZE _plants_trunk_size
+				SYMBOL "plantcircle"
+				COLOR _plants_trunk_clr
+			END
+		END
+	END
+#endif

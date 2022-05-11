@@ -22,6 +22,7 @@ create index if not exists OSM_PREFIX_landusages_expr_idx on OSM_PREFIX_landusag
 create index if not exists OSM_PREFIX_landusages_expr_idx1 on OSM_PREFIX_landusages using gin((tags->'{tourism,amenity,shop,leisure,man_made,natural,historic,highway,power,generator_source,power_source}'::text[]));
 create index if not exists OSM_PREFIX_landusages_type_idx on OSM_PREFIX_landusages (type);
 create index if not exists OSM_PREFIX_places_type_idx on OSM_PREFIX_places (type);
+create index if not exists OSM_PREFIX_plants_type_idx on OSM_PREFIX_plants (type);
 
 -- create materialized view to combine housenumbers from various tables and speed up display
 create materialized view if not exists v_OSM_PREFIX_housenumbers_buildings
@@ -93,3 +94,5 @@ vacuum analyse OSM_PREFIX_railways;
 vacuum analyse OSM_PREFIX_landusages_gen1;
 vacuum analyse OSM_PREFIX_landusages;
 vacuum analyse OSM_PREFIX_places;
+vacuum analyse OSM_PREFIX_housenumbers;
+vacuum analyse OSM_PREFIX_plants;

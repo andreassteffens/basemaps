@@ -1653,6 +1653,20 @@ namedstyles = {
 		'housenumbers_lbl_ol_width': 1.0,
 		'housenumbers_lbl_txt': "'[label]'",
 		'housenumbers_lbl_font': "NotoSansUIRegular"
+	},
+	'plants': {
+		# begin displaying plants at z18
+		'display_plants': {0: 0, 18: 1},
+
+		'plants_canopy_size': 16,
+		'plants_canopy_clr': "0 128 0",
+		'plants_canopy_opacity': 30,
+
+		'plants_trunk_size': 4,
+		'plants_trunk_clr': "178 127 54",
+
+		'plants_data': '"geometry from (SELECT *, NULL AS nullid FROM (SELECT GEOMETRY as geometry, type, osm_id FROM OSM_PREFIX_plants) AS numbers) as foo using unique osm_id using srid=OSM_SRID"',
+
 	}
 }
 
@@ -1662,7 +1676,7 @@ style_aliases = {
 
 	# map with no road casing and few colors, suited for using as a basemap when overlaying
 	# other layers without risk of confusion between layers.
-	"default": "default",
+	"default": "default,plants",
 
 	# a style resembling the google-maps theme
 	"google": "default,outlined,google",
@@ -1675,16 +1689,16 @@ style_aliases = {
 	"bw": "default,outlined,centerlined,bw",
 
 	# a style adding symbols for poi and other features, ala google map
-	"defaultsymbols": "default,symbols",
-	"googlesymbols": "default,outlined,google,symbols",
-	"michelinsymbols": "default,outlined,centerlined,michelin,symbols",
-	"bingsymbols": "default,outlined,bing,symbols",
+	"defaultsymbols": "default,symbols,plants",
+	"googlesymbols": "default,outlined,google,symbols,plants",
+	"michelinsymbols": "default,outlined,centerlined,michelin,symbols,plants",
+	"bingsymbols": "default,outlined,bing,symbols,plants",
 
 	# a style adding housenumbers
-	"defaultsymbolshousenumbers": "default,symbols,housenumbers",
-	"googlesymbolshousenumbers": "default,outlined,google,symbols,housenumbers",
-	"michelinsymbolshousenumbers": "default,outlined,centerlined,michelin,symbols,housenumbers",
-	"bingsymbolshousenumbers": "default,outlined,bing,symbols,housenumbers"
+	"defaultsymbolshousenumbers": "default,symbols,housenumbers,plants",
+	"googlesymbolshousenumbers": "default,outlined,google,symbols,housenumbers,plants",
+	"michelinsymbolshousenumbers": "default,outlined,centerlined,michelin,symbols,housenumbers,plants",
+	"bingsymbolshousenumbers": "default,outlined,bing,symbols,housenumbers,plants"
 }
 
 parser = argparse.ArgumentParser()
