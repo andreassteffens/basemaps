@@ -7,6 +7,9 @@
 		TYPE LINE
 		NAME layername(admin_fr,_layer_suffix)
 		DATA _admin_data
+		METADATA
+			"ows_title" layername(admin_fr,_layer_suffix)
+		END
 		CLASS
 			STYLE
 				COLOR _admin_clr
@@ -27,6 +30,9 @@
 			_border_epsg
 		END
 		DATA _border_data
+		METADATA
+			"ows_title" layername(borders,_layer_suffix)
+		END
 #if _display_border_2 == 1
 		CLASS
 #if _display_border_2_outer == 1

@@ -11,6 +11,9 @@
 		MINSCALEDENOM _minscale
 		MAXSCALEDENOM _maxscale
 		DATA _land_data
+		METADATA
+			"ows_title" layername(land,_layer_suffix)
+		END
 		CLASS
 			STYLE
 				COLOR _land_clr

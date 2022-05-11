@@ -15,6 +15,9 @@
 #endif
 		NAME layername(plants,_layer_suffix)
 		DATA _plants_data
+		METADATA
+			"ows_title" layername(plants,_layer_suffix)
+		END
 		CLASS
 			STYLE
 				SIZE _plants_canopy_size

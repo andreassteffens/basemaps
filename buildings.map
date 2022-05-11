@@ -13,6 +13,9 @@
 		EXTENT OSM_EXTENT
 #endif
 		DATA "geometry from (select geometry,osm_id, OSM_NAME_COLUMN as name from OSM_PREFIX_buildings) as foo using unique osm_id using srid=OSM_SRID"
+		METADATA
+			"ows_title" layername(buildings,_layer_suffix)
+		END
 		LABELITEM "name"
 		PROCESSING "LABEL_NO_CLIP=ON"
 		PROCESSING "CLOSE_CONNECTION=DEFER"

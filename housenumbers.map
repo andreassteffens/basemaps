@@ -15,6 +15,9 @@
 #endif
 		NAME layername(housenumbers,_layer_suffix)
 		DATA _housenumbers_data
+		METADATA
+			"ows_title" layername(housenumbers,_layer_suffix)
+		END
 		CLASS
 			LABEL
 				SIZE _housenumbers_lbl_size

@@ -15,6 +15,9 @@
 #endif
 		NAME layername(symairport,_layer_suffix)
 		DATA _symairport_data
+		METADATA
+			"ows_title" layername(symairport,_layer_suffix)
+		END
 		CLASSITEM "name"
 #if _display_symairways == 1
 		CLASS

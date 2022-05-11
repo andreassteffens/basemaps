@@ -15,6 +15,9 @@
 		TYPE LINE
 		NAME layername(railways,_layer_suffix)
 		DATA _railways_data
+		METADATA
+			"ows_title" layername(railways,_layer_suffix)
+		END
 		CLASSITEM "tunnel"
 		CLASS
 			EXPRESSION "0"
@@ -56,6 +59,9 @@
 		EXTENT OSM_EXTENT
 #endif
 		DATA _roads_data
+		METADATA
+			"ows_title" layername(roads,_layer_suffix)
+		END
 		LABELITEM "name"
 		CLASSITEM "type"
 
@@ -860,6 +866,9 @@
 		EXTENT OSM_EXTENT
 #endif
 		DATA "geometry from (select geometry, osm_id, type from OSM_PREFIX_aeroways) as foo using unique osm_id using srid=OSM_SRID"
+		METADATA
+			"ows_title" layername(aeroways,_layer_suffix)
+		END
 		CLASSITEM "type"
 		CLASS
 			EXPRESSION "runway"

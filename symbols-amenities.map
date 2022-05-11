@@ -12,6 +12,9 @@
 		TYPE POINT
 		NAME layername(symamenities,_layer_suffix)
 		DATA _symamenities_data
+		METADATA
+			"ows_title" layername(symamenities,_layer_suffix)
+		END
 #if OSM_FORCE_POSTGIS_EXTENT == 1
 		EXTENT OSM_EXTENT
 #endif

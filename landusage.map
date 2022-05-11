@@ -13,6 +13,9 @@
 		EXTENT OSM_EXTENT
 #endif
 		DATA _landusage_data
+		METADATA
+			"ows_title" layername(landuse,_layer_suffix)
+		END
 		PROCESSING "LABEL_NO_CLIP=ON"
 		PROCESSING "CLOSE_CONNECTION=DEFER"
 		MAXSCALEDENOM _maxscale
@@ -258,6 +261,9 @@
 		EXTENT OSM_EXTENT
 #endif
 		DATA "geometry from OSM_PREFIX_transport_areas using unique osm_id using srid=OSM_SRID"
+		METADATA
+			"ows_title" layername(transport_areas,_layer_suffix)
+		END
 		PROCESSING "CLOSE_CONNECTION=DEFER"
 		MAXSCALEDENOM _maxscale
 		MINSCALEDENOM _minscale
@@ -300,6 +306,9 @@
 		EXTENT OSM_EXTENT
 #endif
 		DATA _waterarea_data
+		METADATA
+			"ows_title" layername(waterarea,_layer_suffix)
+		END
 		MAXSCALEDENOM _maxscale
 		MINSCALEDENOM _minscale  
 		PROCESSING "CLOSE_CONNECTION=DEFER"
@@ -359,6 +368,9 @@
 		EXTENT OSM_EXTENT
 #endif
 		DATA _waterways_data
+		METADATA
+			"ows_title" layername(waterways,_layer_suffix)
+		END
 		CLASSITEM "type"
 		MAXSCALEDENOM _maxscale
 		MINSCALEDENOM _minscale

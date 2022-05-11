@@ -12,6 +12,9 @@
 		MINSCALEDENOM _minscale
 		MAXSCALEDENOM _maxscale
 		DATA _hillshade_data
+		METADATA
+			"ows_title" layername(hillshade,_layer_suffix)
+		END
 		COMPOSITE
 			OPACITY _hillshade_opacity
 			COMPOP _hillshade_compop
