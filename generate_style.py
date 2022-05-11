@@ -1667,6 +1667,22 @@ namedstyles = {
 
 		'plants_data': '"geometry from (SELECT *, NULL AS nullid FROM (SELECT GEOMETRY as geometry, type, osm_id FROM OSM_PREFIX_plants) AS numbers) as foo using unique osm_id using srid=OSM_SRID"',
 
+	},
+	'topography': {
+		'display_hillshade': 1,
+		'hillshade_compop': '"hard-light"',
+		'hillshade_opacity': {
+			0: 100,
+			9: 70,
+			12: 50
+		},
+			'hillshade_data': {
+				0: '"OpenTopoMap_data/hillshade-5000.tif"',
+				3: '"OpenTopoMap_data/hillshade-1000.tif"',
+				6: '"OpenTopoMap_data/hillshade-700.tif"',
+				9: '"OpenTopoMap_data/hillshade-500.tif"',
+				12: '"OpenTopoMap_data/hillshade-30m.tif"'
+		}
 	}
 }
 
@@ -1698,7 +1714,13 @@ style_aliases = {
 	"defaultsymbolshousenumbers": "default,symbols,housenumbers,plants",
 	"googlesymbolshousenumbers": "default,outlined,google,symbols,housenumbers,plants",
 	"michelinsymbolshousenumbers": "default,outlined,centerlined,michelin,symbols,housenumbers,plants",
-	"bingsymbolshousenumbers": "default,outlined,bing,symbols,housenumbers,plants"
+	"bingsymbolshousenumbers": "default,outlined,bing,symbols,housenumbers,plants",
+
+	# a style adding topography
+	"defaultsymbolshousenumbers": "default,symbols,housenumbers,plants,topography",
+	"googlesymbolshousenumbers": "default,outlined,google,symbols,housenumbers,plants,topography",
+	"michelinsymbolshousenumbers": "default,outlined,centerlined,michelin,symbols,housenumbers,plants,topography",
+	"bingsymbolshousenumbers": "default,outlined,bing,symbols,housenumbers,plants,topography"
 }
 
 parser = argparse.ArgumentParser()

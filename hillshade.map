@@ -1,0 +1,20 @@
+#if _display_hillshade
+	LAYER
+		TYPE RASTER
+		GROUP "default"
+		STATUS ON
+		DEBUG _layerdebug
+		NAME layername(hillshade,_layer_suffix)
+		PROCESSING "APPROXIMATION_SCALE=full"
+		PROJECTION
+			_land_epsg
+		END
+		MINSCALEDENOM _minscale
+		MAXSCALEDENOM _maxscale
+		DATA _hillshade_data
+		COMPOSITE
+			OPACITY _hillshade_opacity
+			COMPOP _hillshade_compop
+		END
+	END
+#endif
