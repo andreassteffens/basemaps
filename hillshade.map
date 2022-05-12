@@ -6,6 +6,7 @@
 		DEBUG _layerdebug
 		NAME layername(hillshade,_layer_suffix)
 		PROCESSING "APPROXIMATION_SCALE=full"
+		PROCESSING "RESAMPLE=BILINEAR"
 		PROJECTION
 			_land_epsg
 		END
