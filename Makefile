@@ -23,14 +23,15 @@ OSM_FORCE_POSTGIS_EXTENT?=0
 OSM_WMS_SRS?=EPSG:900913 EPSG:4326 EPSG:3857 EPSG:2154 EPSG:310642901 EPSG:4171 EPSG:310024802 EPSG:310915814 EPSG:310486805 EPSG:310702807 EPSG:310700806 EPSG:310547809 EPSG:310706808 EPSG:310642810 EPSG:310642801 EPSG:310642812 EPSG:310032811 EPSG:310642813 EPSG:2986 EPSG:3035
 DEBUG?=1
 LAYERDEBUG?=1
+ERROR_LOG?=/home/edmin/basemaps_symbols/logs/error.log
 PROJ_LIB?=`pwd`
 STYLE?=default
 #can also use google or bing
 
 template=osmbase.map
 
-includes=land.map landusage.map borders.map highways.map places.map \
-		housenumbers.map plants.map hillshade.map\
+includes=ocean.map land.map landusage.map borders.map highways.map places.map \
+		housenumbers.map plants.map hillshade.map contours.map\
 		symbols-aeroways.map symbols-amenities.map symbols-stations.map \
 		generated/$(STYLE)style.msinc \
 		generated/$(STYLE)level0.msinc generated/$(STYLE)level1.msinc generated/$(STYLE)level2.msinc generated/$(STYLE)level3.msinc \
@@ -106,7 +107,7 @@ generated/$(STYLE)level18.msinc: generate_style.py
 	python generate_style.py  -s $(STYLE) -l 18 > $@
 
 $(mapfile):$(template) $(includes)
-	$(CPP) -D_debug=$(DEBUG) -D_layerdebug=$(LAYERDEBUG)  -DOSM_PREFIX=$(OSM_PREFIX) -DOSM_SRID=$(OSM_SRID) -DOSM_FORCE_POSTGIS_EXTENT=$(OSM_FORCE_POSTGIS_EXTENT) -P -o $(mapfile) $(template) -DTHEME=$(STYLE) -D_proj_lib=\"$(PROJ_LIB)\" -Igenerated
+	$(CPP) -D_debug=$(DEBUG) -D_layerdebug=$(LAYERDEBUG) -D_error_log=\"$(ERROR_LOG)\" -DOSM_PREFIX=$(OSM_PREFIX) -DOSM_SRID=$(OSM_SRID) -DOSM_FORCE_POSTGIS_EXTENT=$(OSM_FORCE_POSTGIS_EXTENT) -P -o $(mapfile) $(template) -DTHEME=$(STYLE) -D_proj_lib=\"$(PROJ_LIB)\" -Igenerated
 	$(SED) 's/##.*$$//g' $(mapfile)
 	$(SED) '/^ *$$/d' $(mapfile)
 	$(SED) -e 's/OSM_PREFIX_/$(OSM_PREFIX)/g' $(mapfile)

@@ -72,10 +72,25 @@ style = {
 	'maxscale': maxscales,
 	'minscale': minscales,
 
+	##### ocean #####
+	'ocean_data': {
+		0: '"data/ocean_reduced_z0.shp"',
+		1: '"data/ocean_reduced_z1.shp"',
+		2: '"data/ocean_reduced_z2.shp"',
+		3: '"data/ocean_reduced_z3.shp"',
+		4: '"data/ocean_reduced_z4.shp"',
+		5: '"data/ocean_reduced_z5.shp"',
+		6: '"data/ocean_reduced_z6.shp"'
+	},
+	'ocean_epsg': '"init=epsg:4326"',
+	'ocean_clr': '"#B3C6D4"',
+
+
+	##### land #####
 	'land_clr': '"#E8E6E1"',
 	'land_data': {
-		0: '"data/simplified_land_polygons"',
-		9: '"data/land_polygons"'
+		0: '"data/simplified_land_polygons.shp"',
+		9: '"data/land_polygons.shp"'
 	},
 	'land_epsg': {
 		0: '"init=epsg:3857"',
@@ -1672,6 +1687,7 @@ namedstyles = {
 
 	},
 	'topography': {
+		# hillshading
 		'display_hillshade': 1,
 		'hillshade_compop': '"hard-light"',
 		'hillshade_opacity': {
@@ -1685,7 +1701,35 @@ namedstyles = {
 				6: '"OpenTopoMap_data/hillshade-700.tif"',
 				9: '"OpenTopoMap_data/hillshade-500.tif"',
 				12: '"OpenTopoMap_data/hillshade-30m.tif"'
-		}
+		},
+
+		# contours
+		'display_contours': {
+			0: 0,
+			11: 1
+		},
+		'contour_epsg': '"init=epsg:4326"',
+		'contours_data': {
+			0: '',
+			11: '"geometry from (SELECT *, NULL AS nullid FROM (SELECT geometry, osm_id, elevation, type_ext as type FROM OSM_PREFIX_contours) AS number WHERE type_ext in (\'elevation_major\')) as foo using unique osm_id using srid=OSM_SRID"',
+			15: '"geometry from (SELECT *, NULL AS nullid FROM (SELECT geometry, osm_id, elevation, type_ext as type FROM OSM_PREFIX_contours) AS number WHERE type_ext in (\'elevation_major\', \'elevation_medium\')) as foo using unique osm_id using srid=OSM_SRID"'
+		},
+		'contour_major_width': {
+			0: 0,
+			11: 0.2,
+			12: 0.4,
+			13: 0.5,
+			14: 0.6
+		},
+		'contour_major_clr': '"#d45500"',
+		'contour_medium_width': {
+			0: 0,
+			11: 0.2,
+			13: 0.4,
+			14: 0.4
+		},
+		'contour_medium_clr': '"#d45500"',
+		'contour_txt_clr': '"#bc7e55"'
 	}
 }
 

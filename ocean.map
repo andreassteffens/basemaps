@@ -1,0 +1,23 @@
+	LAYER
+		TYPE POLYGON
+		STATUS ON
+		GROUP "default"
+		DEBUG _layerdebug
+		NAME layername(ocean,_layer_suffix)
+		PROCESSING "APPROXIMATION_SCALE=full"
+		PROJECTION
+			_ocean_epsg
+		END
+		MINSCALEDENOM _minscale
+		MAXSCALEDENOM _maxscale
+		DATA _ocean_data
+		METADATA
+			"ows_title" layername(ocean,_layer_suffix)
+		END
+		CLASS
+			STYLE
+				COLOR _ocean_clr
+			END
+		END
+	END
+
