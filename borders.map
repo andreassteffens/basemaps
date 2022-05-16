@@ -2,6 +2,7 @@
 	LAYER
 		GROUP "default"
 		STATUS ON
+		DEBUG _layerdebug
 		MAXSCALEDENOM _maxscale
 		MINSCALEDENOM _minscale
 		TYPE LINE
@@ -22,6 +23,7 @@
 	LAYER
 		GROUP "default"
 		STATUS ON
+		DEBUG _layerdebug
 		MAXSCALEDENOM _maxscale
 		MINSCALEDENOM _minscale
 		TYPE LINE
