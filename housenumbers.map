@@ -34,6 +34,7 @@
 				ALIGN CENTER
 				WRAP ' '
 				FORCE FALSE
+				PARTIALS TRUE
 			END
 		END
 	END
